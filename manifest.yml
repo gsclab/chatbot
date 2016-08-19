@@ -1,0 +1,19 @@
+declared-services:
+  GSC-FSS-Lab-Conversation:
+    label: conversation
+    plan: free
+  GSC-FSS-Lab-Tone-Analyzer:
+    label: tone_analyzer
+    plan: standard
+    
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: gsc-fss-lab-chatbot
+  host: gsc-fss-lab-chatbot
+  disk_quota: 1024M
+  services:
+  - GSC-FSS-Lab-Conversation
+  - GSC-FSS-Lab-Tone-Analyzer
