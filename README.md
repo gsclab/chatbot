@@ -1,11 +1,10 @@
-# GSC-FSS-Lab-Chatbot
 
-Welcome! These instructions describe the prerequisites you should complete before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
+Welcome! These instructions describe the pre-requisites you should complete before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
 
 
 ## Prepare your Bluemix account
 
-<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to [step 2](#acc_complete) in this section). </b> 
+<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). If you already have a Bluemix account, then sign in to your account and proceed to [step 2](#acc_complete). </b> 
 
   1.1 Register for a [Bluemix account](https://console.ng.bluemix.net/registration/), fill out the required details and click 'Create Account'.
 
