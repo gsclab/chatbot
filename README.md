@@ -5,7 +5,7 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 ## Prepare your Bluemix account
 
-<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to step 2 in this section). </b> 
+<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to [step 2](#acc_complete) in this section). </b> 
 
   1.1 Register for a [Bluemix account](https://console.ng.bluemix.net/registration/), fill out the required details and click 'Create Account'.
 
@@ -53,8 +53,8 @@ Welcome! These instructions describe the prerequisites you should complete befor
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/dashboard.PNG)
 
 
-
-<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. For the lab, you will be required to deploy 1 application and 2 services. Go to your Bluemix Dashboard to check if you have the required space:</b>
+<a name="acc_complete">
+<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. For the lab, you will be required to deploy 1 application and 2 services. Go to your Bluemix Dashboard to check if you have the required space:</b></a>
    * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
@@ -67,7 +67,7 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 <b>1. Click on the 'Deploy to Bluemix' button below.</b>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/gsclab/chatbot.git)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/vikramrengarajan/GSC-FSS-Lab-Chatbot-v1)
 
 <b>2. Log in with your Bluemix account.</b>
 
@@ -95,16 +95,16 @@ Welcome! These instructions describe the prerequisites you should complete befor
   - Creates the application.
   - Creates a Conversation and Tone Analyzer service instance.
 
-Once the deployment is complete, your dashboard should contain the app and the service as shown below. 
+<b>5.  Once the deployment is complete, Click on 'Deployed to Bluemix sucessfully'.</b>
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/res.PNG)
 
+You will land on the Overview of your application. 
 
-<b>5.  After the deployment process has finsihed, select 'VIEW YOUR APP'.</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/yourapp.PNG)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/viewyourapp.PNG)
-
-<b>6. The application and service have been successfully deployed, and you are now ready to begin the lab!</b>
+<b>6. The application and services have been successfully deployed, and you are now ready to begin the lab!</b>
 
 
 # License
