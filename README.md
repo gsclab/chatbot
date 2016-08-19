@@ -1,6 +1,6 @@
+# Implementing a chat bot using Watson Cognitive Services
 
 Welcome! These instructions describe the pre-requisites you should complete before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
-
 
 ## Prepare your Bluemix account
 
@@ -53,7 +53,7 @@ Welcome! These instructions describe the pre-requisites you should complete befo
 
 
 <a name="acc_complete">
-<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. For the lab, you will be required to deploy 1 application and 2 services. Go to your Bluemix Dashboard to check if you have the required space:</b></a>
+<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. Open your Bluemix Dashboard to check if you have the required space:</b></a>
    * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
