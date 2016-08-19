@@ -1,6 +1,6 @@
 # Implementing a chat bot using Watson Cognitive Services
 
-Welcome! These instructions describe the pre-requisites you should complete before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
+Welcome! These instructions describe the pre-requisites to be completed before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
 
 ## Prepare your Bluemix account
 
@@ -24,13 +24,13 @@ Welcome! These instructions describe the pre-requisites you should complete befo
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![](readme_images/success.PNG)
 
 
-   1.4 Click 'Login' and login with your Bluemix credentials.
+   1.4 Click 'Login' and enter your Bluemix credentials.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![](readme_images/logmail.PNG)
    
 
 
-   1.5 Create an Organization and enter any organization name.
+   1.5 Create an Organization and enter an organization name.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/orgmail1.PNG)
 
@@ -66,7 +66,7 @@ Welcome! These instructions describe the pre-requisites you should complete befo
 
 <b>1. Click on the 'Deploy to Bluemix' button below.</b>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/vikramrengarajan/GSC-FSS-Lab-Chatbot-v1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/gsclab/chatbot)
 
 <b>2. Log in with your Bluemix account.</b>
 
@@ -94,12 +94,12 @@ Welcome! These instructions describe the pre-requisites you should complete befo
   - Creates the application.
   - Creates a Conversation and Tone Analyzer service instance.
 
-<b>5.  Once the deployment is complete, Click on 'Deployed to Bluemix sucessfully'.</b>
+<b>5.  After the deployment has completed, click on the 'Deployed to Bluemix sucessfully' link.</b>
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/res.PNG)
 
-You will land on the Overview of your application. 
+You will land on the Overview page of your application. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/yourapp.PNG)
 
