@@ -80,8 +80,8 @@ app.post('/api/message', function(req, res) {
 	if ( !workspace || workspace === '<workspace-id>' ) {
 		return res.json( {
 		  'output': {
-			'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. '+
-					'Please refer to the getting started section in the lab handout for details.'
+			'text': 'Your app is running but it is yet to be configured with a <b>WORKSPACE_ID</b> environment variable. '+
+					'These instructions will be provided in your lab handout <b>on the day of your lab.</b>'
 			}
 		} );
 	}
