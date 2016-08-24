@@ -34,12 +34,14 @@ var url = require('url'), bodyParser = require('body-parser'),
 	https = require('https'),
 	numeral = require('numeral');
 	
-var commonServices = require('./common_services');
+var bankingServices = require('./banking_services');
 
 var CONVERSATION_USERNAME = '',
 	CONVERSATION_PASSWORD = '',
 	TONE_ANALYZER_USERNAME = '',
 	TONE_ANALYZER_PASSWORD = '';
+
+var WORKSPACE_ID = '<workspace-id>';
 
 var LOOKUP_BALANCE = 'balance';
 var LOOKUP_TRANSACTIONS = 'transactions';
@@ -71,7 +73,7 @@ var tone_analyzer = watson.tone_analyzer({
 	version_date : '2016-05-19'
 });
 
-var WORKSPACE_ID = '<workspace-id>';
+
 
 // Endpoint to be called from the client side
 app.post('/api/message', function(req, res) {
@@ -87,28 +89,38 @@ app.post('/api/message', function(req, res) {
 	}
 	
 	
-	var payload = {
-		workspace_id : workspace,
-		context : {
-			'person' : commonServices.getPerson()
-		},
-		input : {}
-	};
-
-	if (req.body) {
-		if (req.body.input) {
-			payload.input = req.body.input;
-		}
-		if (req.body.context) {
-			// The client must maintain context/state
-			payload.context = req.body.context;
+	bankingServices.getPerson(7829706, function(err, person){
+		
+		if(err){
+			console.log('Error occurred while getting person data ::', err);
+			return res.status(err.code || 500).json(err);
 		}
 
-	}
-	callconv(payload);
+		var payload = {
+			workspace_id : workspace,
+			context : {
+				'person' : person
+			},
+			input : {}
+		};
+
+		if (req.body) {
+			if (req.body.input) {
+				payload.input = req.body.input;
+			}
+			if (req.body.context) {
+				// The client must maintain context/state
+				payload.context = req.body.context;
+			}
+
+		}
+		callconversation(payload);
+	
+	});
+	
 
 	// Send the input to the conversation service
-	function callconv(payload) {
+	function callconversation(payload) {
 		var query_input = JSON.stringify(payload.input);
 		var context_input = JSON.stringify(payload.context);
 
@@ -126,7 +138,8 @@ app.post('/api/message', function(req, res) {
 				var len = emotionTones.length;
 				for (var i = 0; i < len; i++) {
 					if (emotionTones[i].tone_id === 'anger') {
-						console.log('Emotion_anger', emotionTones[i].score);
+						console.log('Input = ',query_input);
+						console.log('emotion_anger score = ','Emotion_anger', emotionTones[i].score);
 						tone_anger_score = emotionTones[i].score;
 						break;
 					}
@@ -140,6 +153,7 @@ app.post('/api/message', function(req, res) {
 				if (err) {
 					return res.status(err.code || 500).json(err);
 				}else{
+					console.log('conversation.message :: ',JSON.stringify(data, null, 2));
 					//lookup actions 
 					checkForLookupRequests(data, function(err, data){
 						if (err) {
@@ -181,61 +195,73 @@ function checkForLookupRequests(data, callback){
 			if(data.context.action.account_type && data.context.action.account_type!=''){
 				
 				//lookup account information services and update context with account data
-				var accounts = commonServices.getAccountInfo(7829706, data.context.action.account_type);
-				
-				var len = accounts ? accounts.length : 0;
-				
-				var append_account_response = (data.context.action.append_response && 
-						data.context.action.append_response) === true ? true : false;
-				
-				
-				var accounts_result_text = '';
-				
-				for(var i=0;i<len;i++){
-					accounts[i].balance = accounts[i].balance ? numeral(accounts[i].balance).format('$0,0.00') : '';
+				var accounts = bankingServices.getAccountInfo(7829706, data.context.action.account_type, function(err, accounts){
 					
-					if(accounts[i].available_credit)
-						accounts[i].available_credit = accounts[i].available_credit ? numeral(accounts[i].available_credit).format('$0,0.00') : '';
-					
-					if(accounts[i].last_statement_balance)
-						accounts[i].last_statement_balance = accounts[i].last_statement_balance ? numeral(accounts[i].last_statement_balance).format('$0,0.00') : '';
-				
-					if(append_account_response===true){
-						accounts_result_text += accounts[i].number + ' ' + accounts[i].type + ' Balance: '+accounts[i].balance +'<br/>';
+					if(err){
+						console.log('Error while calling bankingServices.getAccountInfo ', err);
+						callback(err,null);
+						return;
 					}
-				}
+					var len = accounts ? accounts.length : 0;
 				
-				payload.context['accounts'] = accounts;
+					var append_account_response = (data.context.action.append_response && 
+							data.context.action.append_response === true) ? true : false;
 				
-				//clear the context's action since the lookup was completed.
-				//update context action to empty in the subsequent turn and submit the data
-				payload.context.action = {};
 				
-				if(!append_account_response){
-					console.log('call conversation.message with lookup results.');
-					conversation.message(payload, function(err, data) {
-						if (err) {
-							console.log('Error while calling conversation.message with lookup result', err);
-							callback(err,null);
-						}else {
-							callback(null, data);
+					var accounts_result_text = '';
+				
+					for(var i=0;i<len;i++){
+						accounts[i].balance = accounts[i].balance ? numeral(accounts[i].balance).format('$0,0.00') : '';
+					
+						if(accounts[i].available_credit)
+							accounts[i].available_credit = accounts[i].available_credit ? numeral(accounts[i].available_credit).format('$0,0.00') : '';
+					
+						if(accounts[i].last_statement_balance)
+							accounts[i].last_statement_balance = accounts[i].last_statement_balance ? numeral(accounts[i].last_statement_balance).format('$0,0.00') : '';
+				
+						if(append_account_response===true){
+							accounts_result_text += accounts[i].number + ' ' + accounts[i].type + ' Balance: '+accounts[i].balance +'<br/>';
 						}
-					});
-				}else{
-					console.log('append lookup results to the output.');
-					//append accounts list text to response array
-					if(data.output.text){
-						data.output.text.push(accounts_result_text);
 					}
-					callback(null, data);
+				
+					payload.context['accounts'] = accounts;
+				
+					//clear the context's action since the lookup was completed.
+					payload.context.action = {};
+				
+					if(!append_account_response){
+						console.log('call conversation.message with lookup results.');
+						conversation.message(payload, function(err, data) {
+							if (err) {
+								console.log('Error while calling conversation.message with lookup result', err);
+								callback(err,null);
+							}else {
+								console.log('checkForLookupRequests conversation.message :: ',JSON.stringify(data, null, 2));
+								callback(null, data);
+							}
+						});
+					}else{
+						console.log('append lookup results to the output.');
+						//append accounts list text to response array
+						if(data.output.text){
+							data.output.text.push(accounts_result_text);
+						}
+						//clear the context's action since the lookup and append was completed.
+						data.context.action = {};
+						
+						callback(null, data);
 					
-				}
+					}
+					
+				
+				});
+				
 				
 			}
 			
 		}else if(data.context.action.lookup === LOOKUP_TRANSACTIONS){
 			console.log('Lookup Transactions requested');
-			commonServices.getTransactions(7829706, data.context.action.category, function(err, transaction_response){
+			bankingServices.getTransactions(7829706, data.context.action.category, function(err, transaction_response){
 			
 				if(err){
 					console.log('Error while calling account services for transactions', err);
@@ -262,6 +288,8 @@ function checkForLookupRequests(data, callback){
 						if(data.output.text){
 							data.output.text.push(responseTxtAppend);
 						}
+						//clear the context's action since the lookup and append was completed.
+						data.context.action = {};
 					}
 					callback(null, data);
 					
