@@ -145,6 +145,13 @@ var banking_services = {
 		description : 'Home Furnishings',
 		type : 'debit',
 		date : '08-16-2016'
+	}, {
+		amount : 95,
+		account_number : 'xxx7685',
+		category : 'other',
+		description : 'Annual Fee',
+		type : 'debit',
+		date : '08-15-2016'
 	} ]
 
 }
