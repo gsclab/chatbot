@@ -57,6 +57,7 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 <a name="step_view">
    1.8 If you land on the new Bluemix interface as shown below,</a> click on the highlighted area at the top right.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview1.PNG)   
 
  Click on 'Switch to Classic' to switch to the console.
