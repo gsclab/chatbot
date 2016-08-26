@@ -46,14 +46,30 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/summary_success.PNG)
  
-
- You will land on your Bluemix Dashboard.
+<b>
+ You will land on your Bluemix Dashboard. 
+ * If you have landed on the Dashboard view as shown below, proceed to [step 2](#acc_complete1).
+ * If you did not get to the Dashboard, proceed to [step 1.8](#step_view). 
+</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/dashboard.PNG)
 
 
+<a name="step_view">
+   1.8 If you land on the new Bluemix interface as shown below,</a> follow the subsequent steps to reach the Bluemix Dashboard's 'classic' view.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview1.PNG)   
+
+ Click on 'Switch to Classic' to switch to the console.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview2.PNG)  
+
+You may be asked to login again, please login and after this you will land on the <b>Bluemix Dashboard</b>.
+
+
+
 <a name="acc_complete">
-<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. Open your Bluemix Dashboard to check if you have the required space:</b></a>
+<a name="acc_complete1">
+<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. Open your Bluemix Dashboard to check if you have the required space:</b></a></a>
    * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
@@ -72,7 +88,7 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy.PNG)
 
-<b>3. If you are asked to choose an alias, then follow these instructions. Otherwise, proceed to step 4 in this section. </b>
+<b>3. If you are asked to choose an alias, then follow these instructions. Otherwise, proceed to [step 4](#4_view) in this section. </b>
 
 3.1 Enter a unique alias name and click create.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/alias.PNG)
@@ -81,8 +97,8 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 3.2 Verify your alias name and click continue.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/cont.PNG)
 
-
-<b>4. Name your app, and then select the Region, Organization and Space where the app will be deployed. Click 'DEPLOY'.</b>
+<a name="4_view">
+<b>4. Name your app, and then select the Region, Organization and Space where the app will be deployed. Click 'DEPLOY'.</b></a>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy1.PNG)
 
