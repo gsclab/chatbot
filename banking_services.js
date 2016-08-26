@@ -148,7 +148,7 @@ var banking_services = {
 	}, {
 		amount : 95,
 		account_number : 'xxx7685',
-		category : 'other',
+		category : 'fees',
 		description : 'Annual Fee',
 		type : 'debit',
 		date : '08-15-2016'
