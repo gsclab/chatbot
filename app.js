@@ -153,7 +153,7 @@ app.post('/api/message', function(req, res) {
 				if (err) {
 					return res.status(err.code || 500).json(err);
 				}else{
-					console.log('conversation.message :: ',JSON.stringify(data, null, 2));
+					console.log('conversation.message :: ',JSON.stringify(data));
 					//lookup actions 
 					checkForLookupRequests(data, function(err, data){
 						if (err) {
@@ -236,7 +236,7 @@ function checkForLookupRequests(data, callback){
 								console.log('Error while calling conversation.message with lookup result', err);
 								callback(err,null);
 							}else {
-								console.log('checkForLookupRequests conversation.message :: ',JSON.stringify(data, null, 2));
+								console.log('checkForLookupRequests conversation.message :: ',JSON.stringify(data));
 								callback(null, data);
 							}
 						});
