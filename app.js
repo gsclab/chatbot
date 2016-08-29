@@ -311,44 +311,5 @@ function checkForLookupRequests(data, callback){
 	
 }
 
-
-
-/**
- * Updates the response text using the intent confidence
- * 
- * @param {Object}
- *            input The request to the Conversation service
- * @param {Object}
- *            response The response from the Conversation service
- * @return {Object} The response with the updated message
- */
-function updateMessage(input, response) {
-	
-	var responseText = null;
-	
-	if (response.intents && response.intents[0]) {
-		
-		var intent = response.intents[0];
-		// Depending on the confidence of the response the app can return
-		// different messages.
-		// The confidence will vary depending on how well the system is trained.
-		// The service will always try to assign
-		// a class/intent to the input. If the confidence is low, then it
-		// suggests the service is unsure of the
-		// user's intent . In these cases it is usually best to return a
-		// disambiguation message
-		// ('I did not understand your intent, please rephrase your question',
-		// etc..)
-		if (intent.confidence <= 0.75 ) {
-			console.log('Intent confidence is below 0.75. Ask the user to rephrase the question.');
-			responseText = 'I did not understand your intent. Please rephrase the question.';
-			response.output.text = [responseText];
-		}
-	}
-	
-	return response;
-}
-
-
 	
 module.exports = app;
