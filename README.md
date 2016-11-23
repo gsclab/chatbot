@@ -5,9 +5,9 @@ Welcome! This document contains all of the information required to setup and run
 <b>IMPORTANT NOTICE: This lab relies on Bluemix and services such as Watson Conversation. It may not work exactly as documented when Bluemix and/or the underlying services are updated. Please contact us if you experience problems with the lab. This lab was last updated and validated on September 9th, 2016.
 </b>
 
-The materials for this lab are
-[Lab Overview Slides](https://ibm.biz/BdrTQt)
-[Lab Handout](http://ibm.biz/Bdru7G)
+The materials for this lab are: <br />
+[Lab Overview Slides](https://ibm.biz/BdrTQt) <br />
+[Lab Handout](http://ibm.biz/Bdru7G) <br />
 
 # Prepare your Bluemix account
 
